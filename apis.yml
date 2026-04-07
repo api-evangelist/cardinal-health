@@ -1,7 +1,12 @@
 aid: cardinal-health
-url: https://raw.githubusercontent.com/api-evangelist/cardinal-health/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/cardinal-health/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.cardinal-health.com
+description: >-
+  Cardinal Health is a global integrated healthcare services and products company
+  that provides customized solutions for hospitals, healthcare systems, pharmacies,
+  ambulatory surgery centers, clinical laboratories, and physician offices.
