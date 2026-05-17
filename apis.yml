@@ -16,7 +16,7 @@ description: >-
   and Spark Shipping offer managed connectors into Cardinal Health for
   order-to-cash, inventory, and supply-chain automation.
 type: Index
-x-type: company
+kind: company
 position: Consumer
 access: Partner
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -87,9 +87,9 @@ common:
     url: https://www.cardinalhealth.com/en/about-us/careers.html
   - type: Contact
     url: https://www.cardinalhealth.com/en/contact-us.html
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.cardinalhealth.com/en/notices/terms-and-conditions.html
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.cardinalhealth.com/en/notices/privacy-policy.html
   - type: LinkedIn
     url: https://www.linkedin.com/company/cardinal-health
