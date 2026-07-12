@@ -76,6 +76,8 @@ apis:
       - GPO contract pricing and compliance reporting
       - Drug traceability and DSCSA-related data exchange
 common:
+  - type: DomainSecurity
+    url: security/cardinal-health-domain-security.yml
   - type: Website
     url: https://www.cardinalhealth.com/
   - type: Products and Services
