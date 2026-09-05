@@ -1,0 +1,138 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  Independent EDI trading-partner directories that publish Cardinal-Health-specific
+  mapping guides, corroborated across two vendors. Cardinal Health's own supplier
+  guidebook (www.cardinalhealth.com/content/dam/corp/web/documents/Manual/
+  cardinalhealth-pharma-supplier-guidebook.pdf) could not be fetched — the Akamai
+  edge drops every non-browser connection to that host.
+provider: Cardinal Health
+providerId: cardinal-health
+basis: >-
+  READ FROM THIRD-PARTY INTEGRATOR DOCUMENTATION, NOT FROM A CARDINAL HEALTH
+  CONTRACT. Cardinal Health publishes no OpenAPI, AsyncAPI, GraphQL SDL or WSDL, so
+  none of these assertions could be checked against a machine-readable contract the
+  company serves. They are recorded because two independent EDI platforms publish
+  Cardinal-Health-specific transaction lists, which is real evidence of the trading
+  partner program — but it is second-hand evidence and is marked as such on every row.
+conformance:
+  - id: x12-edi
+    label: ASC X12 EDI transaction sets
+    conforms: true
+    confidence: medium
+    evidence: https://www.truecommerce.com/trading-partner-network/cardinal-health/
+    evidence_status: 200
+    evidence_type: third-party-integrator-documentation
+    detail: >-
+      TrueCommerce's Cardinal Health partner page enumerates 810 Invoice, 812
+      Credit/Debit Adjustment, 844 Product Transfer Account Adjustment, 845 Price
+      Authorization Acknowledgment/Status, 849 Response to Product Transfer Account
+      Adjustment, 850 Purchase Order, 852 Product Activity Data, 856 Ship
+      Notice/Manifest, 867 Product Transfer and Resale Report, 940 Warehouse Shipping
+      Order, 943/944/945/947 warehouse advices, and 997 Functional Acknowledgment.
+    transaction_sets:
+      - '810'
+      - '812'
+      - '844'
+      - '845'
+      - '849'
+      - '850'
+      - '852'
+      - '856'
+      - '867'
+      - '940'
+      - '943'
+      - '944'
+      - '945'
+      - '947'
+      - '997'
+  - id: x12-edi-core-order-to-cash
+    label: X12 order-to-cash core (850 / 855 / 810 / 856)
+    conforms: true
+    confidence: medium
+    evidence: https://zenbridge.io/trading-partners/cardinalhealth-edi-integration/
+    evidence_status: 200
+    evidence_type: third-party-integrator-documentation
+    detail: >-
+      Second, independent corroboration. Zenbridge's Cardinal Health page names 850
+      Purchase Order, 855 Purchase Order Acknowledgement, 810 Invoice and 856 Ship
+      Notice/Manifest by number. 855 appears here and not in the TrueCommerce list,
+      so the union of the two sources is wider than either alone.
+  - id: openapi
+    label: OpenAPI contract published
+    conforms: false
+    confidence: high
+    evidence: well-known/cardinal-health-well-known.yml
+    detail: >-
+      No OpenAPI or Swagger document at any probed path on any reachable host. The one
+      real API host, api.cardinalhealth.com, returns 403 VPC Service Controls for every
+      path including /openapi.json, /swagger.json and /robots.txt.
+  - id: asyncapi
+    label: AsyncAPI event contract published
+    conforms: false
+    confidence: high
+    evidence: well-known/cardinal-health-well-known.yml
+    detail: No AsyncAPI document and no public webhook catalog.
+  - id: oauth2
+    label: OAuth 2.0 authorization surface published
+    conforms: false
+    confidence: medium
+    evidence: well-known/cardinal-health-well-known.yml
+    detail: >-
+      /.well-known/oauth-authorization-server and /.well-known/oauth-protected-resource
+      returned 403 on api.cardinalhealth.com and soft-404 SPA shells everywhere else.
+      Cardinal Health engineering job postings describe Apigee with OAuth and JWT, but a
+      job posting is not a published authorization server, so this is recorded false.
+  - id: oidc
+    label: OpenID Connect discovery published
+    conforms: false
+    confidence: medium
+    evidence: well-known/cardinal-health-well-known.yml
+    detail: No /.well-known/openid-configuration served on any reachable host.
+  - id: rfc9457
+    label: RFC 9457 problem+json error format
+    conforms: false
+    confidence: high
+    evidence: well-known/cardinal-health-well-known.yml
+    detail: Undeterminable in the honest direction — there is no contract to read error shapes from.
+  - id: rfc9116
+    label: RFC 9116 security.txt
+    conforms: false
+    confidence: high
+    evidence: well-known/cardinal-health-well-known.yml
+    detail: >-
+      Not served. Cardinal Health does run a vulnerability disclosure program
+      (hackerone.com/cardinal_health) but does not advertise it at the well-known path.
+  - id: fhir
+    label: HL7 FHIR
+    conforms: false
+    confidence: high
+    evidence: well-known/cardinal-health-well-known.yml
+    detail: >-
+      Checked because the Kin Score healthcare regime shortlists it. Not applicable in
+      practice: Cardinal Health is a pharmaceutical and medical-surgical distributor, so
+      its integration surface is supply-chain EDI, not clinical data exchange. Recorded
+      false rather than omitted so the shortlist is visibly closed out.
+domain_standard:
+  standard: ASC X12 (EDI)
+  present: true
+  read_from: third-party-integrator-documentation
+  contract_declared: false
+  note: >-
+    ASC X12 is the domain standard for pharmaceutical and medical-surgical
+    distribution, and Cardinal Health trades on it at scale. It is NOT declared in a
+    contract Cardinal Health publishes, because Cardinal Health publishes no contract —
+    a partner learns the transaction set from an onboarding packet, not from a
+    fetchable document. That distinction is the finding.
+regimes_applicable:
+  regimes:
+    - HIPAA
+    - DSCSA (Drug Supply Chain Security Act)
+    - FDA 21 CFR Part 11
+  note: >-
+    Listed as the regimes that govern this company's data exchange. No conformance
+    claim is made for any of them: nothing Cardinal Health publishes was fetchable this
+    round that asserts one.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

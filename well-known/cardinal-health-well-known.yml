@@ -1,0 +1,358 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  Anonymous HTTPS probes of the closed well-known path list against every host
+  this record knows: the registrable domain and www, the investor-relations host,
+  the customer ordering host, the partner portal, the API gateway host discovered
+  this round, and the developer portal named by search-engine results.
+note: >-
+  ZERO REAL DOCUMENTS. Three of the reachable hosts are catch-all SPA shells that
+  answer HTTP 200 with the same HTML for every /.well-known/* path, including the
+  negative control that cannot exist — so every 200 recorded below is a soft hit,
+  not a served document, and no WellKnown or SecurityTxt pointer is emitted.
+  www.cardinalhealth.com could not be probed at all: the Akamai edge completes the
+  TLS handshake and then drops the connection for every non-browser client (curl
+  and the fetch tool both time out), so its rows record a connection failure rather
+  than a status code. api.cardinalhealth.com is a real Cardinal Health host (Sectigo
+  OV certificate, O=Cardinal Health, Inc., CN=api.cardinalhealth.com) that sits behind
+  a Google Cloud VPC Service Controls perimeter and returns the same 403
+  SecurityPolicyViolated body for every path, robots.txt included.
+hosts:
+  - host: www.cardinalhealth.com
+    reachable: false
+    failure: >-
+      TLS handshake completes, then the origin/edge closes the connection with no
+      HTTP response (curl exit 000, fetch tool 60s timeout). Akamai bot mitigation.
+    documents:
+      - path: /.well-known/security.txt
+        status: 0
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 0
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 0
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 0
+        file: null
+      - path: /.well-known/api-catalog
+        status: 0
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 0
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 0
+        file: null
+      - path: /.well-known/agent.json
+        status: 0
+        file: null
+      - path: /.well-known/aauth-resource.json
+        status: 0
+        file: null
+      - path: /.well-known/apis.json
+        status: 0
+        file: null
+      - path: /apis.json
+        status: 0
+        file: null
+      - path: /apis.yml
+        status: 0
+        file: null
+  - host: cardinalhealth.com
+    reachable: true
+    note: Apex 301-redirects every path to www.cardinalhealth.com, which is unreachable.
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 301
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 301
+        file: null
+      - path: /.well-known/api-catalog
+        status: 301
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 301
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 301
+        file: null
+      - path: /.well-known/agent.json
+        status: 301
+        file: null
+      - path: /.well-known/aauth-resource.json
+        status: 301
+        file: null
+      - path: /.well-known/apis.json
+        status: 301
+        file: null
+      - path: /apis.json
+        status: 301
+        file: null
+      - path: /apis.yml
+        status: 301
+        file: null
+  - host: api.cardinalhealth.com
+    reachable: true
+    path_echo_control: passed
+    note: >-
+      Real Cardinal Health API gateway host, discovered this round. Sectigo OV cert
+      subject O=Cardinal Health, Inc., CN=api.cardinalhealth.com, SAN
+      api.cardinalhealth.com + www.api.cardinalhealth.com, valid 2026-05-19 to
+      2026-12-03; A record 34.120.123.153 (Google Cloud). Every anonymous request,
+      including /robots.txt, returns the identical 145-byte XML body
+      <Error><Code>SecurityPolicyViolated</Code><Message>Request violates VPC Service
+      Controls.</Message></Error>. Nothing is readable without being inside the
+      perimeter; no contract could be retrieved.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+      - path: /.well-known/agent.json
+        status: 403
+        file: null
+      - path: /.well-known/aauth-resource.json
+        status: 403
+        file: null
+      - path: /.well-known/ucp.json
+        status: 403
+        file: null
+      - path: /.well-known/acp.json
+        status: 403
+        file: null
+      - path: /.well-known/apis.json
+        status: 403
+        file: null
+      - path: /apis.json
+        status: 403
+        file: null
+      - path: /apis.yml
+        status: 403
+        file: null
+      - path: /.well-known/cardinal-health-negcontrol-7f3ab91c.json
+        status: 403
+        file: null
+        control: negative
+  - host: orderexpress.cardinalhealth.com
+    reachable: true
+    path_echo_control: failed
+    hit_count: 0
+    soft_404_control:
+      path: /.well-known/ch-negcontrol-7f3ab91c.json
+      status: 200
+      bytes: 1531
+      body: React SPA index shell (<!doctype html> ... link rel=icon href=/CAH.ico)
+    note: >-
+      Catch-all single-page-app router. Every path below returned the same ~1.5KB
+      HTML shell, and so did a control path that cannot exist. All 200s are soft
+      hits; nothing was saved and no pointer is emitted.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/aauth-resource.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/apis.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /apis.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /openapi.json
+        status: 200
+        file: null
+        soft_404: true
+  - host: partnerportal.cardinalhealth.com
+    reachable: true
+    path_echo_control: failed
+    hit_count: 0
+    soft_404_control:
+      path: /.well-known/ch-negcontrol-7f3ab91c.json
+      status: 200
+      bytes: 1108
+      body: '"Partner Portal" HTML shell (Azure Front Door origin)'
+    note: >-
+      Catch-all shell for every /.well-known/* path, control included. /apis.json
+      correctly 404s, which confirms the 200s are the SPA route, not documents.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/aauth-resource.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/apis.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /apis.json
+        status: 404
+        file: null
+      - path: /openapi.json
+        status: 200
+        file: null
+        soft_404: true
+  - host: ir.cardinalhealth.com
+    reachable: true
+    path_echo_control: failed
+    hit_count: 0
+    soft_404_control:
+      path: /.well-known/ch-negcontrol-7f3ab91c.json
+      status: 200
+      bytes: 11
+      body: '"Invalid key"'
+    note: >-
+      Q4 Inc investor-relations platform. Answers 200 with the 11-byte string
+      "Invalid key" for every /.well-known/* path including the control.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/aauth-resource.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/apis.json
+        status: 200
+        file: null
+        soft_404: true
+      - path: /apis.json
+        status: 404
+        file: null
+      - path: /openapi.json
+        status: 404
+        file: null
+  - host: developer.np.cardinalhealth.com
+    reachable: false
+    failure: >-
+      NXDOMAIN on 1.1.1.1, 8.8.8.8 and the system resolver. Search engines still
+      index a page titled "Cardinal Health API Developer Portal: Home" at this host,
+      so a developer portal existed; the hostname no longer resolves publicly.
+    documents:
+      - path: /
+        status: 0
+        file: null
+summary:
+  hosts_probed: 7
+  hosts_reachable: 5
+  documents_saved: 0
+  real_hits: 0
+  pointer_emitted: false

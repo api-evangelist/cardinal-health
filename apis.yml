@@ -66,7 +66,7 @@ tags_raw:
   - Trading Partner
   - Fortune 100
 created: '2026-03-21'
-modified: '2026-04-23'
+modified: '2026-09-05'
 specificationVersion: '0.23'
 apis:
   - aid: cardinal-health:edi-trading-partner
@@ -83,6 +83,7 @@ apis:
       Cardinal Health trading partner teams and typically spans six
       to ten weeks including mapping and conformance testing.
     humanURL: https://www.cardinalhealth.com/en/services.html
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cardinal-health.png
     tags:
       - B2B
       - EDI
@@ -132,6 +133,41 @@ common:
     url: https://www.linkedin.com/company/cardinal-health
   - type: X
     url: https://x.com/cardinalhealth
+  - type: Conformance
+    url: conformance/cardinal-health-conformance.yml
+  - type: LLMsTxt
+    url: llms/cardinal-health-llms.txt
+  - type: VulnerabilityDisclosure
+    url: security/cardinal-health-vulnerability-disclosure.yml
+  - type: Security
+    url: security/cardinal-health-vulnerability-disclosure.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v3
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: >-
+    Cardinal Health runs a real API gateway at api.cardinalhealth.com — Sectigo OV
+    certificate, O=Cardinal Health, Inc. — but it sits inside a Google Cloud VPC
+    Service Controls perimeter and returns 403 SecurityPolicyViolated to every
+    anonymous request, /robots.txt included, while the developer portal that search
+    engines still index as "Cardinal Health API Developer Portal: Home" at
+    developer.np.cardinalhealth.com no longer resolves publicly, leaving the
+    login-only partnerportal.cardinalhealth.com and a contracted trading-partner
+    onboarding as the only way in.
+  evidence:
+    - url: https://api.cardinalhealth.com/openapi.json
+      status: 403
+    - url: https://api.cardinalhealth.com/robots.txt
+      status: 403
+    - url: https://developer.np.cardinalhealth.com/
+      status: 0
+    - url: https://partnerportal.cardinalhealth.com/.well-known/api-catalog
+      status: 200
+  checked: '2026-09-05'

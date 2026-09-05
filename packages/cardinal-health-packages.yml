@@ -1,0 +1,57 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  Unauthenticated queries against registry.npmjs.org, pypi.org, rubygems.org,
+  search.maven.org, azuresearch-usnc.nuget.org and api.github.com, plus a web
+  search for a Cardinal Health SDK or client library.
+provider: Cardinal Health
+providerId: cardinal-health
+package_count: 0
+packages: []
+note: >-
+  Cardinal Health publishes no first-party client library on any public package
+  registry, and operates no public GitHub organization. Because there are no
+  packages, there is nothing to record a version or publication date for; the
+  absence itself is the finding. No SDKs pointer is emitted.
+searched:
+  - registry: npm
+    query: https://registry.npmjs.org/-/v1/search?text=cardinalhealth
+    result: >-
+      no first-party result; the "cardinal" and "@cardinal/*" hits are an unrelated
+      ANSI syntax highlighter and a Solana token SDK
+    version: null
+  - registry: npm
+    query: https://registry.npmjs.org/-/v1/search?text=cardinal-health
+    result: no first-party result
+    version: null
+  - registry: pypi
+    query: https://pypi.org/pypi/cardinalhealth/json
+    http_status: 404
+    version: null
+  - registry: pypi
+    query: https://pypi.org/simple/cardinal-health/
+    http_status: 404
+    version: null
+  - registry: rubygems
+    query: https://rubygems.org/api/v1/gems/cardinalhealth.json
+    http_status: 404
+    version: null
+  - registry: nuget
+    query: https://azuresearch-usnc.nuget.org/query?q=cardinalhealth
+    result: totalHits 0
+    version: null
+  - registry: maven
+    query: https://search.maven.org/solrsearch/select?q=cardinalhealth
+    result: no first-party artifact
+    version: null
+  - registry: github
+    query: https://api.github.com/orgs/cardinalhealth
+    http_status: 404
+    version: null
+  - registry: github
+    query: https://api.github.com/orgs/CardinalHealth
+    http_status: 404
+    version: null
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

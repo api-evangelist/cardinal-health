@@ -1,0 +1,34 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  Web search for a Cardinal Health MCP server, plus direct probes of
+  api.cardinalhealth.com/mcp and DNS resolution of mcp.cardinalhealth.com.
+provider: Cardinal Health
+providerId: cardinal-health
+status: none
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+tools: []
+note: >-
+  No Model Context Protocol server exists for Cardinal Health — hosted or local.
+  mcp.cardinalhealth.com is NXDOMAIN; https://api.cardinalhealth.com/mcp returns the
+  same 403 VPC Service Controls body every other path on that host returns; no npm or
+  PyPI package ships one. No candidate tool list was derived either, because Cardinal
+  Health publishes no OpenAPI to derive one from — deriving tools from prose would be
+  fabrication. No MCPServer pointer is emitted; this file records the search, not a
+  server.
+evidence:
+  - url: https://api.cardinalhealth.com/mcp
+    http_status: 403
+    fetched: '2026-09-05'
+  - host: mcp.cardinalhealth.com
+    dns: NXDOMAIN
+    resolver: 1.1.1.1
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
