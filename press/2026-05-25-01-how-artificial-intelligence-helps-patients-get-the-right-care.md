@@ -1,7 +1,9 @@
 ---
 title: How artificial intelligence helps patients get the right care
 url: https://newsroom.cardinalhealth.com/2022-06-22-How-artificial-intelligence-helps-patients-get-the-right-care
-date: '2026-05-25'
+published: '2022-06-22'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"Cardinal Health" press release artificial intelligence'
 position: 1
 source: serpapi-google

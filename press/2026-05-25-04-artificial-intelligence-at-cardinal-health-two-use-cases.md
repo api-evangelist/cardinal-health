@@ -1,7 +1,9 @@
 ---
 title: Artificial Intelligence at Cardinal Health - Two Use Cases
 url: https://emerj.com/artificial-intelligence-at-cardinal-health/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Cardinal Health" press release artificial intelligence'
 position: 4
 source: serpapi-google
