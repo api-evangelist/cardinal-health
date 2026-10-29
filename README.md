@@ -1,4 +1,4 @@
-# Cardinal Health (cardinal-health)
+# Cardinal Health
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,76 +66,102 @@
 
 Cardinal Health is a Fortune 15 global integrated healthcare services and products company that provides pharmaceutical distribution, medical-surgical product distribution, and customized solutions for hospitals, health systems, pharmacies, ambulatory surgery centers, clinical laboratories, and physician offices. Cardinal Health does not publish a public developer portal, but it exchanges high volumes of B2B trading data with customers and suppliers via standard X12 EDI transactions (850, 810, 855, 856, 846, 832, 867) over AS2, SFTP, and private API channels. Third-party EDI platforms such as Orderful, Crossfire, SPS Commerce, Zenbridge, DataTrans, Alluvia, ConnectPointz, and Spark Shipping offer managed connectors into Cardinal Health for order-to-cash, inventory, and supply-chain automation.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/cardinal-health/refs/heads/main/apis.yml)
+**Areas:** B2B · Distribution · EDI · Healthcare · Medical-Surgical · Order-to-Cash · Pharmaceuticals · Supply Chain · Trading Partner · Fortune 100
 
-## Scope
+## Cardinal Health on APIs.io
 
-- **Type:** Index
-- **x-type:** company
-- **Position:** Consumer
-- **Access:** Partner
+Everything profiled for Cardinal Health is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cardinal-health/](https://apis.io/providers/cardinal-health/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- B2B
-- Distribution
-- EDI
-- Healthcare
-- Medical-Surgical
-- Order-to-Cash
-- Pharmaceutical
-- Supply Chain
-- Trading Partner
+- [Cardinal Health EDI Trading Partner Integration](https://apis.io/apis/cardinal-health/edi-trading-partner/) — Cardinal Health operates an EDI trading partner program for customers and suppliers covering pharmaceutical distribution, medical products, and specialty…
 
-## Overview
+### Published properties
 
-Cardinal Health operates two primary segments - Pharmaceutical & Specialty Solutions and Global Medical Products & Distribution - serving roughly 90% of U.S. hospitals and tens of thousands of outpatient, retail, and laboratory customers. Because the business runs on very large transaction volumes with healthcare providers, manufacturers, and GPOs, Cardinal Health integrates through the X12 EDI standard rather than a public REST API. Trading partners exchange purchase orders (EDI 850), acknowledgments (855), advance ship notices (856), invoices (810), inventory inquiries (846), product catalogs (832), and product activity data (867) over AS2, SFTP, and API-fronted EDI. Onboarding is coordinated with Cardinal Health's trading partner team, and most managed integrations go live within six to ten weeks.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (2)
 
-### Cardinal Health EDI Trading Partner Integration
-Cardinal Health operates an EDI trading partner program for customers and suppliers covering pharmaceutical distribution, medical products, and specialty pharmacy. Integrations use X12 EDI transactions including 850 Purchase Order, 810 Invoice, 855 PO Acknowledgment, 856 Advance Ship Notice, 846 Inventory Inquiry, 832 Price/Sales Catalog, and 867 Product Activity Data. Connectivity is offered through AS2, SFTP, and API-fronted EDI through managed integrators. Onboarding is coordinated with Cardinal Health trading partner teams and typically spans six to ten weeks including mapping and conformance testing.
+Authentication, trust centre, and vulnerability disclosure.
 
-**Human URL:** [https://www.cardinalhealth.com/en/services.html](https://www.cardinalhealth.com/en/services.html)
+- [Cardinal Health Domain Security](https://apis.io/security/cardinal-health/cardinal-health-domain-security/)
+- [Cardinal Health Vulnerability Disclosure](https://apis.io/security/cardinal-health/cardinal-health-vulnerability-disclosure/)
 
-#### Features
+#### Plans and pricing (1)
 
-- Purchase orders (EDI 850) and acknowledgments (EDI 855)
-- Invoicing (EDI 810) and advance ship notices (EDI 856)
-- Inventory inquiry (EDI 846) and product activity (EDI 867)
-- Price and sales catalog exchange (EDI 832)
-- AS2, SFTP, and API-fronted EDI connectivity
-- Managed partner onboarding and conformance testing
-- Support for medical-surgical and pharmaceutical segments
+Published plans, tiers and prices.
 
-#### Use Cases
+- [Cardinal Health Plans Pricing](https://apis.io/plans/cardinal-health/cardinal-health-plans-pricing/)
 
-- Hospital and health system procurement automation
-- Retail and mail-order pharmacy replenishment
-- Ambulatory surgery center and physician office ordering
-- Manufacturer/distributor chargeback and rebate processing
-- GPO contract pricing and compliance reporting
-- Drug traceability and DSCSA-related data exchange
+#### Rate limits (1)
 
-## Common Properties
+Published request limits.
+
+- [Cardinal Health Rate Limits](https://apis.io/rate-limits/cardinal-health/cardinal-health-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Cardinal Health Finops](https://apis.io/finops/cardinal-health/cardinal-health-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.cardinalhealth.com/)
-- [Products and Services](https://www.cardinalhealth.com/en/services.html)
-- [About](https://www.cardinalhealth.com/en/about-us.html)
-- [Investor Relations](https://ir.cardinalhealth.com/)
-- [Careers](https://www.cardinalhealth.com/en/about-us/careers.html)
-- [Contact](https://www.cardinalhealth.com/en/contact-us.html)
-- [Terms and Conditions](https://www.cardinalhealth.com/en/notices/terms-and-conditions.html)
-- [Privacy Policy](https://www.cardinalhealth.com/en/notices/privacy-policy.html)
-- [LinkedIn](https://www.linkedin.com/company/cardinal-health)
-- [X](https://x.com/cardinalhealth)
+- [Terms of service](https://www.cardinalhealth.com/en/notices/terms-and-conditions.html)
+- [Privacy policy](https://www.cardinalhealth.com/en/notices/privacy-policy.html)
 
-## Timestamps
+## API Evangelist rating
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-04-23
+**Kin Score 13.9** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 10.5 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.4** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cardinal-health/](https://apis.io/providers/cardinal-health/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cardinal Health: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cardinal-health/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
